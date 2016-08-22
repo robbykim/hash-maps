@@ -69,6 +69,7 @@ class HashMap {
     let oldSlots = this._slots
     this._capacity = size
     this.length = 0
+    this._deleted = 0
     this._slots = []
     for (let i = 0; i < oldSlots.length; i++) {
       let slot = oldSlots[i]
