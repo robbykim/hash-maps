@@ -55,13 +55,19 @@ let are_anagrams = (word1, word2) => {
 }
 
 let find_anagrams = (words) => {
-  let array = []
+  let map = {}
   for(let i = 0; i < words.length; i++) {
-    for(let j = i + 1; j < words.length; j++) {
-      if(are_anagrams(words[i], words[j])) {
-        array.push([words[i], words[j]])
-      }
+    let key = words[i].split('').sort().join('')
+    if(map[key] === undefined) {
+      map[key] = [words[i]]
+    } else {
+      map[key].push(words[i])
     }
+  }
+
+  let array = []
+  for(key in map) {
+    array.push(map[key])
   }
   return array
 }
