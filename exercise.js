@@ -52,7 +52,7 @@ class HashMap {
   }
 
   _findSlot (key) {
-    let hash = HashMap._hashString(key)
+    let hash = this._hashString(key)
     let start = hash % this._capacity
 
     for (let i = start; i < start + this._capacity; i++) {
@@ -79,3 +79,5 @@ class HashMap {
     }
   }
 }
+
+module.exports = HashMap
